@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelRouteAPI.Infrastructu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelRouteAPI.Shared", "TravelRouteAPI.Shared\TravelRouteAPI.Shared.csproj", "{9879F4A7-A99E-4052-8D67-8AD79D11BAA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelRouteAPI.Configs", "TravelRouteAPI.Configs\TravelRouteAPI.Configs.csproj", "{8831E4C9-FEF1-4705-8BB3-4391790A6F32}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelRouteAPI.Infrastructure.Configs", "TravelRouteAPI.Configs\TravelRouteAPI.Infrastructure.Configs.csproj", "{8831E4C9-FEF1-4705-8BB3-4391790A6F32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelRouteAPI.Tests", "TravelRouteAPI.Tests\TravelRouteAPI.Tests.csproj", "{DFB4C28E-58C8-4B62-8BD4-7109087123FE}"
 EndProject

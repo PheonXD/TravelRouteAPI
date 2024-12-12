@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TravelRouteAPI.Shared\TravelRouteAPI.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
