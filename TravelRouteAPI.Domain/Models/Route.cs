@@ -1,4 +1,6 @@
-﻿namespace TravelRouteAPI.Shared.Models
+﻿using System.Runtime.CompilerServices;
+
+namespace TravelRouteAPI.Shared.Models
 {
     public class Route
     {
@@ -10,12 +12,12 @@
         /// <summary>
         /// Start point of route
         /// </summary>
-        public required string Origin { get; set; }
+        public string Origin { get; set; }
 
         /// <summary>
         /// End point of route
         /// </summary>
-        public required string Destination { get; set; }
+        public string Destination { get; set; }
 
         /// <summary>
         /// Start date of route
@@ -36,5 +38,34 @@
         /// Time limit after it expires, route became not actual
         /// </summary>
         public DateTime TimeLimit { get; set; }
+
+        public string GetRouteDirectionCacheKey()
+        {
+            return Origin + Destination + OriginDateTime.ToString();
+        }
+
+        // Переопределяем методы Equals и GetHashCode.
+        public override bool Equals(object? obj)
+        {
+            if (obj is null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            var other = (Route)obj;
+
+            return Id == other.Id &&
+                   Origin == other.Origin &&
+                   Destination == other.Destination &&
+                   OriginDateTime == other.OriginDateTime;
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (Id, Origin, Destination, OriginDateTime).GetHashCode();
+            }
+        }
     }
 }

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TravelRouteAPI.Domain.Enums;
+using TravelRouteAPI.Shared.Models;
 
-namespace TravelRouteAPI.Domain.Interfaces
+namespace TravelRouteAPI.Domain.Interfaces;
+
+public interface ICacheService
 {
-    internal class ICacheService
-    {
-    }
+    Task AddRouteAsync(AdapterRoute route);
+
+    IAsyncEnumerable<Route> SearchRoutesAsync(string origin, string destination, DateTime originDateTime);
 }

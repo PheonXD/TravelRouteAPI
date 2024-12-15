@@ -4,16 +4,16 @@ using TravelRouteAPI.Infrastructure.Configs.Options;
 
 namespace TravelRouteAPI.Infrastructure.Configs.Setup;
 
-public class FusionCacheOptionsSetup : IConfigureOptions<FusionCacheOptions>
+public class FusionCacheOptionsSetup : IConfigureOptions<CacheOptions>
 {
-    private const string SectionName = "FusionCache";
+    public const string SectionName = "FusionCache";
 
     private readonly IConfiguration _configuration;
 
     public FusionCacheOptionsSetup(IConfiguration configuration)
      => _configuration = configuration;
 
-    public void Configure(FusionCacheOptions options)
+    public void Configure(CacheOptions options)
         => _configuration.GetRequiredSection(SectionName)
             .Bind(options);
 }

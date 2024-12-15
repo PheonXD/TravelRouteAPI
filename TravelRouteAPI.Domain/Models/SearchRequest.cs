@@ -21,4 +21,9 @@ public class SearchRequest
     /// Filter to find routes
     /// </summary>
     public SearchFilters? Filters { get; set; }
+
+    public string GetRouteCacheKey()
+    {
+        return Origin + Destination + OriginDateTime.ToString();
+    }
 }

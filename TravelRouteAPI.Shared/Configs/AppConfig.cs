@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace TravelRouteAPI.Shared;
+namespace TravelRouteAPI.Shared.Configs;
 
 /// <summary>
 /// Модель описывающая конфигурацию приложений.

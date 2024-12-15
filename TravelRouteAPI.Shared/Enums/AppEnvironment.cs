@@ -1,4 +1,4 @@
-﻿namespace TravelRouteAPI.Shared;
+﻿namespace TravelRouteAPI.Shared.Enums;
 
 /// <summary>
 /// Перечисление окружений.

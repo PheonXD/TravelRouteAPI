@@ -6,7 +6,7 @@ namespace TravelRouteAPI.Infrastructure.Configs.Setup;
 
 public class ProviderUrlsOptionsSetup : IConfigureOptions<ProviderUrlsOptions>
 {
-    private const string SectionName = "ProviderUrls";
+    public const string SectionName = "ProviderUrls";
 
     private readonly IConfiguration _configuration;
 

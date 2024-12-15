@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
+    <PackageReference Include="ZiggyCreatures.FusionCache" Version="1.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TravelRouteAPI.Configs\TravelRouteAPI.Infrastructure.Configs.csproj" />
+    <ProjectReference Include="..\TravelRouteAPI.Domain\TravelRouteAPI.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

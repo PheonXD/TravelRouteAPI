@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TravelRouteAPI.Shared.Models;
 
-namespace TravelRouteAPI.Domain.Interfaces
+namespace TravelRouteAPI.Domain.Interfaces;
+
+public interface IProviderSearchService
 {
-    internal class IProviderSearchService
-    {
-    }
+
+    Task<List<Route>> SearchFlightsAsync(SearchRequest request);
+
+    Task<bool> CheckHealthAsync();
 }
