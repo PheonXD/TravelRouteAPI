@@ -5,7 +5,7 @@ namespace TravelRouteAPI.Domain.Interfaces;
 
 public interface ICacheService
 {
-    Task AddRouteAsync(AdapterRoute route);
+    Task AddRouteAsync(Route route);
 
     IAsyncEnumerable<Route> SearchRoutesAsync(string origin, string destination, DateTime originDateTime);
 }

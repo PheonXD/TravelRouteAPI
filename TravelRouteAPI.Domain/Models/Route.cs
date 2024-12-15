@@ -7,7 +7,7 @@ namespace TravelRouteAPI.Shared.Models
         /// <summary>
         /// Identifier of the whole route
         /// </summary>
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>
         /// Start point of route
