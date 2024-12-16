@@ -1,2 +1,124 @@
-# TravelRouteAPI
-RouteFusion is a unified API for aggregating and filtering travel routes from multiple providers. It features caching, flexible filtering, and provider health checks to optimize search performance and reliability. Built with .NET 7.0 and FusionCache for seamless integration.
+# **TravelRouteAPI**
+
+## **Описание проекта**
+`TravelRouteAPI` – это HTTP API для выполнения **агрегированного поиска маршрутов** с возможностью фильтрации, кэширования и проверки доступности провайдеров.
+
+Сервис использует несколько поставщиков маршрутов (провайдеры), интегрированных через HTTP API, и поддерживает хранение маршрутов в кэше с индивидуальным **TTL** для каждого маршрута.
+
+---
+
+## **Основные возможности**
+
+1. **Агрегированный поиск маршрутов**:
+   - Использование нескольких провайдеров для поиска маршрутов.
+   - Фильтрация результатов по параметрам.
+
+2. **Поиск маршрутов в кэше**:
+   - Возможность ограничиться поиском только закэшированных данных.
+
+3. **Проверка доступности провайдеров**:
+   - Пинг провайдеров для проверки их текущего статуса.
+
+4. **Индексация маршрутов в кэше**:
+   - Оптимизация хранения и поиска маршрутов с использованием индексов.
+
+---
+
+## **Технологии**
+
+- **ASP.NET Core 8.0** – веб-фреймворк.
+- **FusionCache** – кэширование данных с индивидуальным TTL.
+- **AutoMapper** – маппинг данных между объектами.
+- **Swashbuckle (Swagger)** – автоматическая генерация документации API.
+- **HttpClient** – для вызова внешних HTTP API провайдеров.
+- **Dependency Injection** – внедрение зависимостей.
+- **C# 12** – язык программирования.
+
+---
+
+## **Настройка проекта**
+
+### **1. Конфигурация приложения**
+
+Откройте файл **`appsettings.<Environment>.json`** в корне проекта и отредактируйте настройки если необходимо:
+
+```json
+{
+  "CacheOptions": {
+    "DefaultTTL": "00:30:00",
+    "CleanupMinutesInterval": 15
+  },
+  "ProviderUrlsOptions": {
+    "ProviderUrlOne": "https://api.providerone.com/v1",
+    "ProviderUrlTwo": "https://api.providertwo.com/v1"
+  }
+}
+```
+
+### **2. Запуск проекта**
+
+1. Соберите и запустите проект:
+   ```bash
+   dotnet build
+   dotnet run
+   ```
+
+2. Откройте **Swagger UI**:
+   ```
+   https://localhost:5001/swagger
+   ```
+
+---
+
+## **API Методы**
+
+### **1. Поиск маршрутов**
+
+**POST `/api/routes/search`**
+
+#### **Описание**:
+Выполняет поиск маршрутов через провайдеры или только в кэше.
+
+#### **Пример запроса**:
+
+```json
+{
+  "Origin": "Moscow",
+  "Destination": "Sochi",
+  "OriginDateTime": "2024-06-15T08:00:00",
+  "Filters": {
+    "MaxPrice": 5000,
+    "OnlyCached": false
+  }
+}
+```
+
+#### **Пример ответа**:
+
+```json
+{
+  "Routes": [
+    {
+      "Origin": "Moscow",
+      "Destination": "Sochi",
+      "OriginDateTime": "2024-06-15T08:00:00",
+      "DestinationDateTime": "2024-06-15T12:00:00",
+      "Price": 4500,
+      "TimeLimit": "2024-06-15T20:00:00"
+    }
+  ]
+}
+```
+
+### **2. Проверка доступности провайдеров**
+
+**GET `/api/routes/availability`**
+
+#### **Пример ответа**:
+
+```json
+{
+  "ProviderOne": true,
+  "ProviderTwo": false
+}
+```
